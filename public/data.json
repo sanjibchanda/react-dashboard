@@ -1,0 +1,39 @@
+{
+  "projects": [
+    {
+      "id": "1",
+      "name": "Project 1",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "status": "In Progress",
+      "assignedTo": "John Doe"
+    },
+    {
+      "id": "2",
+      "name": "Project 2",
+      "description": "Nullam ac velit vel neque consectetur laoreet.",
+      "status": "Completed",
+      "assignedTo": "Jane Smith"
+    },
+    {
+      "id": "3",
+      "name": "Project 3",
+      "description": "Proin vel velit ac nisi consectetur facilisis.",
+      "status": "Pending",
+      "assignedTo": "Alice Johnson"
+    },
+    {
+      "id": "4",
+      "name": "Project 4",
+      "description": "Aliquam erat volutpat. Donec vel enim at nunc pulvinar faucibus.",
+      "status": "In Progress",
+      "assignedTo": "Bob Brown"
+    },
+    {
+      "id": "5",
+      "name": "Project 5",
+      "description": "Ut id felis non dui tristique posuere.",
+      "status": "Completed",
+      "assignedTo": "Charlie Davis"
+    }
+  ]
+}
