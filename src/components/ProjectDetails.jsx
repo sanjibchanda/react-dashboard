@@ -31,9 +31,29 @@ export default ProjectDetails;
 
 export const projectDetailsLoader = async ({ params }) => {
   const { id } = params;
-  const res = await fetch("http://localhost:5000/projects/" + id);
+  const res = await fetch(
+    "https://cheerful-brigadeiros-ee8987.netlify.app/data.json"
+  );
+
   if (!res.ok) {
-    throw new Error(`Couldn't connect to project: ${id}`);
+    throw new Error(`Couldn't fetch project data`);
   }
-  return res.json();
+
+  const data = await res.json();
+  const project = data.find((item) => item.id === id); // assuming id is a string
+
+  if (!project) {
+    throw new Error(`Project with id ${id} not found`);
+  }
+
+  return project;
 };
+
+// export const projectDetailsLoader = async ({ params }) => {
+//   const { id } = params;
+//   const res = await fetch("http://localhost:5000/projects/" + id);
+//   if (!res.ok) {
+//     throw new Error(`Couldn't connect to project: ${id}`);
+//   }
+//   return res.json();
+// };
