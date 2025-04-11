@@ -2,8 +2,7 @@ import { useSidebar } from "../contexts/SidebarContext";
 import { LuPanelLeft } from "react-icons/lu";
 
 const SidebarToggle = () => {
-  const { setIsOpen } = useSidebar();
-  const { isOpen } = useSidebar();
+  const { isOpen, setIsOpen } = useSidebar();
   return (
     <button
       className={`p-2 rounded-lg bg-gray-300 dark:bg-gray-700 hover:bg-gray-400 dark:hover:bg-gray-600 transition ${

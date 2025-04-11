@@ -4,7 +4,14 @@ import { useSidebar } from "../contexts/SidebarContext";
 import { LuChevronDown } from "react-icons/lu";
 
 const MenuItem = ({ item }) => {
-  const { isOpen } = useSidebar();
+  const { isOpen, setIsOpen } = useSidebar();
+
+  const handleClick = () => {
+    if (window.innerWidth < 768) {
+      setIsOpen(false); // Only auto-close on mobile
+    }
+  };
+
   return (
     <>
       {item.subMenu ? (
@@ -21,6 +28,7 @@ const MenuItem = ({ item }) => {
               <li key={subIndex}>
                 <NavLink
                   to={sub.path}
+                  onClick={handleClick}
                   className="flex items-center py-2 px-3 rounded cursor-pointer transition-colors group text-gray-700 dark:text-gray-200 hover:bg-gray-300 dark:hover:bg-gray-900"
                 >
                   <sub.icon className="w-5 h-5" />
@@ -33,6 +41,7 @@ const MenuItem = ({ item }) => {
       ) : (
         <NavLink
           to={item.path}
+          onClick={handleClick}
           className="relative flex items-center py-2 px-3 rounded cursor-pointer transition-colors group text-gray-700 dark:text-gray-200 hover:bg-gray-300 dark:hover:bg-gray-900"
         >
           <item.icon className="w-5 h-5" />
