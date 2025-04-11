@@ -31,16 +31,19 @@ export default ProjectDetails;
 
 export const projectDetailsLoader = async ({ params }) => {
   const { id } = params;
+
   const res = await fetch(
     "https://cheerful-brigadeiros-ee8987.netlify.app/data.json"
   );
 
   if (!res.ok) {
-    throw new Error(`Couldn't fetch project data`);
+    throw new Error("Failed to fetch project data");
   }
 
   const data = await res.json();
-  const project = data.find((item) => item.id === id); // assuming id is a string
+
+  // Check if your IDs are numbers or strings
+  const project = data.find((item) => String(item.id) === String(id));
 
   if (!project) {
     throw new Error(`Project with id ${id} not found`);

@@ -49,6 +49,18 @@ const Projects = () => {
 export default Projects;
 
 export const ProjectsLoader = async () => {
-  const res = await fetch("http://localhost:5000/projects");
+  const res = await fetch(
+    "https://cheerful-brigadeiros-ee8987.netlify.app/data.json"
+  );
+
+  if (!res.ok) {
+    throw new Error("Failed to fetch projects data");
+  }
+
   return res.json();
 };
+
+// export const ProjectsLoader = async () => {
+//   const res = await fetch("http://localhost:5000/projects");
+//   return res.json();
+// };
